@@ -1,3 +1,4 @@
+![logo](/icon.ico)
 # ProxyBridge Rust Implementation
 
 这是 ProxyBridge Windows 平台的 Rust 重构版本，旨在提供更高的性能和更好的内存安全性。
