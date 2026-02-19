@@ -1,0 +1,22 @@
+local_proxy_port = 34010
+local_udp_relay_port = 34011
+fake_ip_enabled = false
+fake_ip_range = "198.18.0.0/16"
+logging_enabled = false
+monitor_enabled = false
+default_action = "direct"
+
+[[proxies]]
+name = "2"
+host = "127.0.0.1"
+port = 10808
+protocol = "socks5"
+
+[[rules]]
+name = "1"
+enabled = true
+process_name = "*edge*.exe"
+protocol = "Both"
+
+[rules.action]
+proxy = "2"

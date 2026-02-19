@@ -1,0 +1,45 @@
+[package]
+name = "proxybridge-rust"
+version = "0.9.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+windivert = { version = "0.7.0-beta.4", features = ["vendored"] }
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt", "registry"] }
+etherparse = "0.14"
+dashmap = "6.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+ipnet = "2.9"
+parking_lot = "0.12"
+num_cpus = "1.16"
+regex = "1.10"
+lazy_static = "1.4"
+slint = "1.8"
+toml = "0.8"
+tray-icon = { version = "0.21.3", features = ["serde"] }
+image = "0.25.9"
+muda = "0.17.1"
+tao = "0.34.5"
+winit = "0.30.12"
+tokio-rustls = "0.26.4"
+rustls-native-certs = "0.8.3"
+chrono = "0.4.43"
+
+[dependencies.windows]
+version = "0.58"
+features = ["Win32_Foundation", "Win32_NetworkManagement_IpHelper", "Win32_System_Threading", "Win32_System_ProcessStatus", "Win32_Networking_WinSock", "Win32_UI_WindowsAndMessaging"]
+
+[build-dependencies]
+slint-build = "1.8"
+winres = "0.1"
+
+[profile.release]
+opt-level="z"
+lto=true
+codegen-units=1
+panic="abort"
+strip="symbols"
